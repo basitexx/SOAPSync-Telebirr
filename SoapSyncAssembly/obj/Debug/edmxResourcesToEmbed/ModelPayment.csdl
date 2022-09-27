@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PaymentSubscriberModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Tbl_Subscriber">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Msisdn" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="DateSubscription" Type="DateTime" Precision="3" />
+    <Property Name="GroupId" Type="Int32" />
+    <Property Name="DateTermination" Type="DateTime" Precision="3" />
+    <Property Name="Referrer" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Rate" Type="Int32" />
+  </EntityType>
+  <EntityContainer Name="PaymentSubscriberEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Tbl_Subscriber" EntityType="Self.Tbl_Subscriber" />
+  </EntityContainer>
+</Schema>

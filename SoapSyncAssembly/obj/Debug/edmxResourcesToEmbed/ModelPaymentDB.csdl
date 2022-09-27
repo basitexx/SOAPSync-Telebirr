@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PaymentModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <ComplexType Name="fn_GetBulkStatusTotal_Result">
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Total" Type="Int32" />
+  </ComplexType>
+  <ComplexType Name="fn_GetCustomerHistory_Result">
+    <Property Name="Id" Type="Int32" />
+    <Property Name="Msisdn" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="DateSubscription" Type="DateTime" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="Period" Type="Boolean" />
+    <Property Name="Referrer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Product" Type="Int32" />
+    <Property Name="DateTermination" Type="DateTime" />
+  </ComplexType>
+  <ComplexType Name="fn_GetCustomerList_Result">
+    <Property Name="Msisdn" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="DateSubscription" Type="DateTime" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="Period" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="ServiceId" Type="Int32" />
+    <Property Name="DateTermination" Type="DateTime" />
+  </ComplexType>
+  <ComplexType Name="fn_GetNonPremiumList_Result">
+    <Property Name="Id" Type="Int32" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="fn_GetPromotionList_Result">
+    <Property Name="Id" Type="Int32" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </ComplexType>
+  <ComplexType Name="fn_GetPromotionList_Amir_Result">
+    <Property Name="Id" Type="Int32" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </ComplexType>
+  <ComplexType Name="fn_GetPromotionList_Kiya_Result">
+    <Property Name="Id" Type="Int32" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </ComplexType>
+  <ComplexType Name="fn_GetReminderList_Result">
+    <Property Name="Msisdn" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+  </ComplexType>
+  <ComplexType Name="fn_GetSubscriptionList_Result">
+    <Property Name="ServiceId" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="TimeStamp" Type="DateTime" />
+  </ComplexType>
+  <ComplexType Name="fn_GetSubscriptions_Result">
+    <Property Name="amount" Type="Int32" />
+  </ComplexType>
+  <ComplexType Name="fn_GetSubscriptionSummary_Result">
+    <Property Name="ServiceId" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Count" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+  </ComplexType>
+  <ComplexType Name="fn_GetTerminationList_Result">
+    <Property Name="TimeStamp" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+  </ComplexType>
+  <ComplexType Name="fn_GetTerminations_Result">
+    <Property Name="amount" Type="Int32" />
+  </ComplexType>
+  <ComplexType Name="fn_GetTodaysSchedule_Result">
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="GroupId" Type="Int32" />
+    <Property Name="timeStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="DateStamp" Type="DateTime" />
+    <Property Name="ServiceId" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="ReferenceCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="SpPassword" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SpId" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+  </ComplexType>
+  <ComplexType Name="fn_GetTotalMessages_Result">
+    <Property Name="Total" Type="Int32" />
+  </ComplexType>
+  <EntityContainer Name="PaymentEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="fn_GetBulkStatusTotal" IsComposable="true" ReturnType="Collection(PaymentModel.fn_GetBulkStatusTotal_Result)" />
+    <FunctionImport Name="fn_GetCustomerHistory" IsComposable="true" ReturnType="Collection(PaymentModel.fn_GetCustomerHistory_Result)">
+      <Parameter Name="msisdn" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="fn_GetCustomerList" IsComposable="true" ReturnType="Collection(PaymentModel.fn_GetCustomerList_Result)" />
+    <FunctionImport Name="fn_GetNonPremiumList" IsComposable="true" ReturnType="Collection(PaymentModel.fn_GetNonPremiumList_Result)" />
+    <FunctionImport Name="fn_GetPromotionList" IsComposable="true" ReturnType="Collection(PaymentModel.fn_GetPromotionList_Result)">
+      <Parameter Name="GroupId" Mode="In" Type="Int32" />
+      <Parameter Name="ServiceId" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="fn_GetPromotionList_Amir" IsComposable="true" ReturnType="Collection(PaymentModel.fn_GetPromotionList_Amir_Result)">
+      <Parameter Name="GroupId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="fn_GetPromotionList_Kiya" IsComposable="true" ReturnType="Collection(PaymentModel.fn_GetPromotionList_Kiya_Result)">
+      <Parameter Name="GroupId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="fn_GetReminderList" IsComposable="true" ReturnType="Collection(PaymentModel.fn_GetReminderList_Result)" />
+    <FunctionImport Name="fn_GetSubscriptionList" IsComposable="true" ReturnType="Collection(PaymentModel.fn_GetSubscriptionList_Result)" />
+    <FunctionImport Name="fn_GetSubscriptions" IsComposable="true" ReturnType="Collection(PaymentModel.fn_GetSubscriptions_Result)" />
+    <FunctionImport Name="fn_GetSubscriptionSummary" IsComposable="true" ReturnType="Collection(PaymentModel.fn_GetSubscriptionSummary_Result)" />
+    <FunctionImport Name="fn_GetTerminationList" IsComposable="true" ReturnType="Collection(PaymentModel.fn_GetTerminationList_Result)" />
+    <FunctionImport Name="fn_GetTerminations" IsComposable="true" ReturnType="Collection(PaymentModel.fn_GetTerminations_Result)" />
+    <FunctionImport Name="fn_GetTodaysSchedule" IsComposable="true" ReturnType="Collection(PaymentModel.fn_GetTodaysSchedule_Result)" />
+    <FunctionImport Name="fn_GetTotalMessages" IsComposable="true" ReturnType="Collection(PaymentModel.fn_GetTotalMessages_Result)" />
+    <FunctionImport Name="SP_Summary">
+      <Parameter Name="msg" Mode="InOut" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Sp_TransferGroupLog" />
+    <FunctionImport Name="Sp_Unsubscribe">
+      <Parameter Name="msisdn" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Sp_Unsubscribtion">
+      <Parameter Name="msisdn" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Vas_Sp_UpdateDelivery">
+      <Parameter Name="FromAddress" Mode="In" Type="String" />
+      <Parameter Name="ToAddress" Mode="In" Type="String" />
+      <Parameter Name="status" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="Tbl_Error" EntityType="PaymentModel.Tbl_Error" />
+    <FunctionImport Name="Sp_Pmt_Unsubscribe">
+      <Parameter Name="msisdn" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <EntityType Name="Tbl_Error">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ErrorMessage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Trace" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="Source" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

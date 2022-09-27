@@ -1,0 +1,378 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="mt_6024Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="SS_Tbl_ClientStatus">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Status" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DateLogged" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SS_Tbl_Config">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ServerAddress" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Port" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Username" Type="varchar" MaxLength="50" />
+    <Property Name="Password" Type="varchar" MaxLength="50" />
+    <Property Name="FromAddress" Type="varchar" MaxLength="5" />
+    <Property Name="Signature" Type="nvarchar(max)" />
+    <Property Name="PremiumAddress" Type="varchar" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="SS_Tbl_ConnectionStatus">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ConStatus" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SS_Tbl_Error">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Error" Type="nvarchar(max)" />
+    <Property Name="Source" Type="varchar" MaxLength="50" />
+    <Property Name="Trace" Type="nvarchar(max)" />
+    <Property Name="Time" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SS_Tbl_Language">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Language" Type="nvarchar(max)" />
+    <Property Name="isDefault" Type="bit" />
+    <Property Name="CreatedBy" Type="int" />
+  </EntityType>
+  <EntityType Name="SS_Tbl_Message">
+    <Key>
+      <PropertyRef Name="MessageID" />
+    </Key>
+    <Property Name="MessageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Sender" Type="int" Nullable="false" />
+    <Property Name="ReceiverGroup" Type="int" />
+    <Property Name="MessageBody" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LastModified" Type="datetime" Nullable="false" />
+    <Property Name="Destination" Type="varchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="SS_Tbl_MessageLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FromAddress" Type="int" Nullable="false" />
+    <Property Name="ToAddress" Type="varchar" MaxLength="15" />
+    <Property Name="MessageId" Type="int" />
+    <Property Name="Status" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastModified" Type="datetime" Nullable="false" />
+    <Property Name="Reference" Type="nvarchar(max)" />
+    <Property Name="MessageBody" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="SS_Tbl_MessageLogIncoming">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FromAddress" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="ToAddress" Type="varchar" MaxLength="15" />
+    <Property Name="MessageBody" Type="nvarchar(max)" />
+    <Property Name="LastModified" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SS_Tbl_Promotion_Group">
+    <Key>
+      <PropertyRef Name="GroupID" />
+    </Key>
+    <Property Name="GroupID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GroupName" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="100" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="LastModified" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SS_Tbl_Promotion_Schedule">
+    <Key>
+      <PropertyRef Name="ScheduleID" />
+    </Key>
+    <Property Name="ScheduleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Sender" Type="int" Nullable="false" />
+    <Property Name="Receiver" Type="int" />
+    <Property Name="MessageID" Type="int" Nullable="false" />
+    <Property Name="DateSchedule" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Status" Type="int" />
+    <Property Name="LastModified" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsCurrent" Type="bit" />
+    <Property Name="CreatedBy" Type="int" />
+  </EntityType>
+  <EntityType Name="SS_Tbl_Promotion_Temp">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Mobile" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SS_Tbl_Role">
+    <Key>
+      <PropertyRef Name="Rid" />
+    </Key>
+    <Property Name="Rid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Role" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SS_Tbl_Schedule">
+    <Key>
+      <PropertyRef Name="ScheduleID" />
+    </Key>
+    <Property Name="ScheduleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Sender" Type="int" Nullable="false" />
+    <Property Name="Receiver" Type="int" />
+    <Property Name="MessageID" Type="int" Nullable="false" />
+    <Property Name="DateSchedule" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Status" Type="int" />
+    <Property Name="LastModified" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsCurrent" Type="bit" />
+    <Property Name="CreatedBy" Type="int" />
+  </EntityType>
+  <EntityType Name="SS_Tbl_Settings">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HelpMsg" Type="nvarchar(max)" />
+    <Property Name="TerminationMsg" Type="nvarchar(max)" />
+    <Property Name="SubscriptionMsg" Type="nvarchar(max)" />
+    <Property Name="Language" Type="int" />
+    <Property Name="InvalidKeyWordMsg" Type="nvarchar(max)" />
+    <Property Name="NoSubscriptionMsg" Type="nvarchar(max)" />
+    <Property Name="LastModified" Type="datetime" />
+    <Property Name="ModifiedBy" Type="int" />
+    <Property Name="AlreadySubscribed" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SS_Tbl_SiteMap">
+    <Key>
+      <PropertyRef Name="Sid" />
+    </Key>
+    <Property Name="Sid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MenuId" Type="varchar" MaxLength="50" />
+    <Property Name="Role" Type="int" />
+  </EntityType>
+  <EntityType Name="SS_Tbl_SubCategory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="KeyWord" Type="varchar" MaxLength="2" />
+    <Property Name="DateAdded" Type="datetime" />
+    <Property Name="Language" Type="int" />
+    <Property Name="isDefault" Type="bit" />
+  </EntityType>
+  <EntityType Name="SS_Tbl_Subscription">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerId" Type="int" />
+    <Property Name="SubCategoryId" Type="int" Nullable="false" />
+    <Property Name="DateSubscription" Type="datetime" />
+    <Property Name="DateTermination" Type="datetime" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="Mobile" Type="varchar" MaxLength="20" />
+    <Property Name="Product_Id" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SS_Tbl_User">
+    <Key>
+      <PropertyRef Name="User_ID" />
+    </Key>
+    <Property Name="User_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EMP_ID" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="First_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Last_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Role" Type="int" Nullable="false" />
+    <Property Name="LastModified" Type="datetime" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_SS_Tbl_MessageLog_SS_Tbl_Message">
+    <End Role="SS_Tbl_Message" Type="Self.SS_Tbl_Message" Multiplicity="0..1" />
+    <End Role="SS_Tbl_MessageLog" Type="Self.SS_Tbl_MessageLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SS_Tbl_Message">
+        <PropertyRef Name="MessageID" />
+      </Principal>
+      <Dependent Role="SS_Tbl_MessageLog">
+        <PropertyRef Name="MessageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SS_Tbl_MessageLog_SS_Tbl_User">
+    <End Role="SS_Tbl_User" Type="Self.SS_Tbl_User" Multiplicity="1" />
+    <End Role="SS_Tbl_MessageLog" Type="Self.SS_Tbl_MessageLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SS_Tbl_User">
+        <PropertyRef Name="User_ID" />
+      </Principal>
+      <Dependent Role="SS_Tbl_MessageLog">
+        <PropertyRef Name="FromAddress" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SS_Tbl_Promotion_Schedule_SS_Tbl_Message">
+    <End Role="SS_Tbl_Message" Type="Self.SS_Tbl_Message" Multiplicity="1" />
+    <End Role="SS_Tbl_Promotion_Schedule" Type="Self.SS_Tbl_Promotion_Schedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SS_Tbl_Message">
+        <PropertyRef Name="MessageID" />
+      </Principal>
+      <Dependent Role="SS_Tbl_Promotion_Schedule">
+        <PropertyRef Name="MessageID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SS_Tbl_Schedule_SS_Tbl_Message">
+    <End Role="SS_Tbl_Message" Type="Self.SS_Tbl_Message" Multiplicity="1" />
+    <End Role="SS_Tbl_Schedule" Type="Self.SS_Tbl_Schedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SS_Tbl_Message">
+        <PropertyRef Name="MessageID" />
+      </Principal>
+      <Dependent Role="SS_Tbl_Schedule">
+        <PropertyRef Name="MessageID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SS_Tbl_Schedule_SS_Tbl_SubCategory">
+    <End Role="SS_Tbl_SubCategory" Type="Self.SS_Tbl_SubCategory" Multiplicity="0..1" />
+    <End Role="SS_Tbl_Schedule" Type="Self.SS_Tbl_Schedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SS_Tbl_SubCategory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SS_Tbl_Schedule">
+        <PropertyRef Name="Receiver" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SS_Tbl_Settings_SS_Tbl_Language">
+    <End Role="SS_Tbl_Language" Type="Self.SS_Tbl_Language" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SS_Tbl_Settings" Type="Self.SS_Tbl_Settings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SS_Tbl_Language">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SS_Tbl_Settings">
+        <PropertyRef Name="Language" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SS_Tbl_SiteMap_SS_Tbl_Role">
+    <End Role="SS_Tbl_Role" Type="Self.SS_Tbl_Role" Multiplicity="0..1" />
+    <End Role="SS_Tbl_SiteMap" Type="Self.SS_Tbl_SiteMap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SS_Tbl_Role">
+        <PropertyRef Name="Rid" />
+      </Principal>
+      <Dependent Role="SS_Tbl_SiteMap">
+        <PropertyRef Name="Role" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SS_Tbl_SubCategory_SS_Tbl_Language">
+    <End Role="SS_Tbl_Language" Type="Self.SS_Tbl_Language" Multiplicity="0..1" />
+    <End Role="SS_Tbl_SubCategory" Type="Self.SS_Tbl_SubCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SS_Tbl_Language">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SS_Tbl_SubCategory">
+        <PropertyRef Name="Language" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SS_Tbl_Subscription_SS_Tbl_SubCategory">
+    <End Role="SS_Tbl_SubCategory" Type="Self.SS_Tbl_SubCategory" Multiplicity="1" />
+    <End Role="SS_Tbl_Subscription" Type="Self.SS_Tbl_Subscription" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SS_Tbl_SubCategory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SS_Tbl_Subscription">
+        <PropertyRef Name="SubCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SS_Tbl_User_SS_Tbl_Role">
+    <End Role="SS_Tbl_Role" Type="Self.SS_Tbl_Role" Multiplicity="1" />
+    <End Role="SS_Tbl_User" Type="Self.SS_Tbl_User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SS_Tbl_Role">
+        <PropertyRef Name="Rid" />
+      </Principal>
+      <Dependent Role="SS_Tbl_User">
+        <PropertyRef Name="Role" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="mt_6024ModelStoreContainer">
+    <EntitySet Name="SS_Tbl_ClientStatus" EntityType="Self.SS_Tbl_ClientStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SS_Tbl_Config" EntityType="Self.SS_Tbl_Config" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SS_Tbl_ConnectionStatus" EntityType="Self.SS_Tbl_ConnectionStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SS_Tbl_Error" EntityType="Self.SS_Tbl_Error" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SS_Tbl_Language" EntityType="Self.SS_Tbl_Language" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SS_Tbl_Message" EntityType="Self.SS_Tbl_Message" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SS_Tbl_MessageLog" EntityType="Self.SS_Tbl_MessageLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SS_Tbl_MessageLogIncoming" EntityType="Self.SS_Tbl_MessageLogIncoming" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SS_Tbl_Promotion_Group" EntityType="Self.SS_Tbl_Promotion_Group" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SS_Tbl_Promotion_Schedule" EntityType="Self.SS_Tbl_Promotion_Schedule" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SS_Tbl_Promotion_Temp" EntityType="Self.SS_Tbl_Promotion_Temp" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SS_Tbl_Role" EntityType="Self.SS_Tbl_Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SS_Tbl_Schedule" EntityType="Self.SS_Tbl_Schedule" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SS_Tbl_Settings" EntityType="Self.SS_Tbl_Settings" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SS_Tbl_SiteMap" EntityType="Self.SS_Tbl_SiteMap" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SS_Tbl_SubCategory" EntityType="Self.SS_Tbl_SubCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SS_Tbl_Subscription" EntityType="Self.SS_Tbl_Subscription" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SS_Tbl_User" EntityType="Self.SS_Tbl_User" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_SS_Tbl_MessageLog_SS_Tbl_Message" Association="Self.FK_SS_Tbl_MessageLog_SS_Tbl_Message">
+      <End Role="SS_Tbl_Message" EntitySet="SS_Tbl_Message" />
+      <End Role="SS_Tbl_MessageLog" EntitySet="SS_Tbl_MessageLog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SS_Tbl_MessageLog_SS_Tbl_User" Association="Self.FK_SS_Tbl_MessageLog_SS_Tbl_User">
+      <End Role="SS_Tbl_User" EntitySet="SS_Tbl_User" />
+      <End Role="SS_Tbl_MessageLog" EntitySet="SS_Tbl_MessageLog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SS_Tbl_Promotion_Schedule_SS_Tbl_Message" Association="Self.FK_SS_Tbl_Promotion_Schedule_SS_Tbl_Message">
+      <End Role="SS_Tbl_Message" EntitySet="SS_Tbl_Message" />
+      <End Role="SS_Tbl_Promotion_Schedule" EntitySet="SS_Tbl_Promotion_Schedule" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SS_Tbl_Schedule_SS_Tbl_Message" Association="Self.FK_SS_Tbl_Schedule_SS_Tbl_Message">
+      <End Role="SS_Tbl_Message" EntitySet="SS_Tbl_Message" />
+      <End Role="SS_Tbl_Schedule" EntitySet="SS_Tbl_Schedule" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SS_Tbl_Schedule_SS_Tbl_SubCategory" Association="Self.FK_SS_Tbl_Schedule_SS_Tbl_SubCategory">
+      <End Role="SS_Tbl_SubCategory" EntitySet="SS_Tbl_SubCategory" />
+      <End Role="SS_Tbl_Schedule" EntitySet="SS_Tbl_Schedule" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SS_Tbl_Settings_SS_Tbl_Language" Association="Self.FK_SS_Tbl_Settings_SS_Tbl_Language">
+      <End Role="SS_Tbl_Language" EntitySet="SS_Tbl_Language" />
+      <End Role="SS_Tbl_Settings" EntitySet="SS_Tbl_Settings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SS_Tbl_SiteMap_SS_Tbl_Role" Association="Self.FK_SS_Tbl_SiteMap_SS_Tbl_Role">
+      <End Role="SS_Tbl_Role" EntitySet="SS_Tbl_Role" />
+      <End Role="SS_Tbl_SiteMap" EntitySet="SS_Tbl_SiteMap" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SS_Tbl_SubCategory_SS_Tbl_Language" Association="Self.FK_SS_Tbl_SubCategory_SS_Tbl_Language">
+      <End Role="SS_Tbl_Language" EntitySet="SS_Tbl_Language" />
+      <End Role="SS_Tbl_SubCategory" EntitySet="SS_Tbl_SubCategory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SS_Tbl_Subscription_SS_Tbl_SubCategory" Association="Self.FK_SS_Tbl_Subscription_SS_Tbl_SubCategory">
+      <End Role="SS_Tbl_SubCategory" EntitySet="SS_Tbl_SubCategory" />
+      <End Role="SS_Tbl_Subscription" EntitySet="SS_Tbl_Subscription" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SS_Tbl_User_SS_Tbl_Role" Association="Self.FK_SS_Tbl_User_SS_Tbl_Role">
+      <End Role="SS_Tbl_Role" EntitySet="SS_Tbl_Role" />
+      <End Role="SS_Tbl_User" EntitySet="SS_Tbl_User" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

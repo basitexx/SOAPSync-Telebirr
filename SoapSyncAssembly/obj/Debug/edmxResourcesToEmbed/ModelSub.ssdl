@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MT_SMSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="SS_Tbl_SubCategory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="KeyWord" Type="varchar" MaxLength="2" />
+    <Property Name="DateAdded" Type="datetime" />
+    <Property Name="Language" Type="int" />
+    <Property Name="isDefault" Type="bit" />
+  </EntityType>
+  <EntityType Name="SS_Tbl_Subscription">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerId" Type="int" />
+    <Property Name="SubCategoryId" Type="int" Nullable="false" />
+    <Property Name="DateSubscription" Type="datetime" Nullable="false" />
+    <Property Name="DateTermination" Type="datetime" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="Mobile" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <Association Name="FK_SS_Tbl_Subscription_SS_Tbl_SubCategory">
+    <End Role="SS_Tbl_SubCategory" Type="Self.SS_Tbl_SubCategory" Multiplicity="1" />
+    <End Role="SS_Tbl_Subscription" Type="Self.SS_Tbl_Subscription" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SS_Tbl_SubCategory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SS_Tbl_Subscription">
+        <PropertyRef Name="SubCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MT_SMSModelStoreContainer">
+    <EntitySet Name="SS_Tbl_SubCategory" EntityType="Self.SS_Tbl_SubCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SS_Tbl_Subscription" EntityType="Self.SS_Tbl_Subscription" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_SS_Tbl_Subscription_SS_Tbl_SubCategory" Association="Self.FK_SS_Tbl_Subscription_SS_Tbl_SubCategory">
+      <End Role="SS_Tbl_SubCategory" EntitySet="SS_Tbl_SubCategory" />
+      <End Role="SS_Tbl_Subscription" EntitySet="SS_Tbl_Subscription" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PaymentSubscriberModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Tbl_Error">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ErrorMessage" Type="nvarchar(max)" />
+    <Property Name="Trace" Type="nvarchar(max)" />
+    <Property Name="TimeStamp" Type="datetime" />
+    <Property Name="Source" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Tbl_Sync">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Msisdn" Type="varchar" MaxLength="15" />
+    <Property Name="ProductId" Type="varchar" MaxLength="50" />
+    <Property Name="DateSubscription" Type="datetime" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="DateTermination" Type="datetime" />
+  </EntityType>
+  <EntityContainer Name="PaymentSubscriberModelStoreContainer">
+    <EntitySet Name="Tbl_Error" EntityType="Self.Tbl_Error" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Sync" EntityType="Self.Tbl_Sync" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

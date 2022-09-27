@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PaymentSubscriberModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Tbl_Subscriber">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Msisdn" Type="varchar" MaxLength="15" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="DateSubscription" Type="datetime" />
+    <Property Name="GroupId" Type="int" />
+    <Property Name="DateTermination" Type="datetime" />
+    <Property Name="Referrer" Type="varchar" MaxLength="100" />
+    <Property Name="Rate" Type="int" />
+  </EntityType>
+  <EntityContainer Name="PaymentSubscriberModelStoreContainer">
+    <EntitySet Name="Tbl_Subscriber" EntityType="Self.Tbl_Subscriber" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

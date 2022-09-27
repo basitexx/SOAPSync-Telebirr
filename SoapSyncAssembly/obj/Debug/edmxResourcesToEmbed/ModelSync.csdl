@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PaymentSubscriberModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Tbl_Error">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ErrorMessage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Trace" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="Source" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Tbl_Sync">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Msisdn" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="ProductId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DateSubscription" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="DateTermination" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityContainer Name="PaymentSubscriberEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Tbl_Error" EntityType="Self.Tbl_Error" />
+    <EntitySet Name="Tbl_Sync" EntityType="Self.Tbl_Sync" />
+  </EntityContainer>
+</Schema>

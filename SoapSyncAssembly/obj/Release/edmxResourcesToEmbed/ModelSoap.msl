@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="sync6024ModelStoreContainer" CdmEntityContainer="SoapSyncEntities">
+    <EntitySetMapping Name="SS_Tbl_Role">
+      <EntityTypeMapping TypeName="sync6024Model.SS_Tbl_Role">
+        <MappingFragment StoreEntitySet="SS_Tbl_Role">
+          <ScalarProperty Name="Rid" ColumnName="Rid" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SS_Tbl_User">
+      <EntityTypeMapping TypeName="sync6024Model.SS_Tbl_User">
+        <MappingFragment StoreEntitySet="SS_Tbl_User">
+          <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+          <ScalarProperty Name="EMP_ID" ColumnName="EMP_ID" />
+          <ScalarProperty Name="First_Name" ColumnName="First_Name" />
+          <ScalarProperty Name="Last_Name" ColumnName="Last_Name" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+          <ScalarProperty Name="LastModified" ColumnName="LastModified" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_changeMSISDN">
+      <EntityTypeMapping TypeName="sync6024Model.Tbl_changeMSISDN">
+        <MappingFragment StoreEntitySet="Tbl_changeMSISDN">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="MSISDN" ColumnName="MSISDN" />
+          <ScalarProperty Name="newMSISDN" ColumnName="newMSISDN" />
+          <ScalarProperty Name="timeStamp" ColumnName="timeStamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TbL_Error">
+      <EntityTypeMapping TypeName="sync6024Model.TbL_Error">
+        <MappingFragment StoreEntitySet="TbL_Error">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Error" ColumnName="Error" />
+          <ScalarProperty Name="Stamp" ColumnName="Stamp" />
+          <ScalarProperty Name="Trace" ColumnName="Trace" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_extensionInfo">
+      <EntityTypeMapping TypeName="sync6024Model.Tbl_extensionInfo">
+        <MappingFragment StoreEntitySet="Tbl_extensionInfo">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="accessCode" ColumnName="accessCode" />
+          <ScalarProperty Name="chargeMode" ColumnName="chargeMode" />
+          <ScalarProperty Name="MDSPSUBEXPMODE" ColumnName="MDSPSUBEXPMODE" />
+          <ScalarProperty Name="objectType" ColumnName="objectType" />
+          <ScalarProperty Name="isFreePeriod" ColumnName="isFreePeriod" />
+          <ScalarProperty Name="payType" ColumnName="payType" />
+          <ScalarProperty Name="transactionID" ColumnName="transactionID" />
+          <ScalarProperty Name="orderKey" ColumnName="orderKey" />
+          <ScalarProperty Name="keyword" ColumnName="keyword" />
+          <ScalarProperty Name="cycleEndTime" ColumnName="cycleEndTime" />
+          <ScalarProperty Name="durationOfGracePeriod" ColumnName="durationOfGracePeriod" />
+          <ScalarProperty Name="updateReason" ColumnName="updateReason" />
+          <ScalarProperty Name="serviceAvailability" ColumnName="serviceAvailability" />
+          <ScalarProperty Name="channelID" ColumnName="channelID" />
+          <ScalarProperty Name="TraceUniqueID" ColumnName="TraceUniqueID" />
+          <ScalarProperty Name="operCode" ColumnName="operCode" />
+          <ScalarProperty Name="rentSuccess" ColumnName="rentSuccess" />
+          <ScalarProperty Name="try" ColumnName="try" />
+          <ScalarProperty Name="shortMessage" ColumnName="shortMessage" />
+          <ScalarProperty Name="SyncId" ColumnName="SyncId" />
+          <ScalarProperty Name="MSISDN" ColumnName="MSISDN" />
+          <ScalarProperty Name="shortCode" ColumnName="shortCode" />
+          <ScalarProperty Name="durationOfSuspendPeriod" ColumnName="durationOfSuspendPeriod" />
+          <ScalarProperty Name="servicePayType" ColumnName="servicePayType" />
+          <ScalarProperty Name="fee" ColumnName="fee" />
+          <ScalarProperty Name="Starttime" ColumnName="Starttime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_NamedParameter">
+      <EntityTypeMapping TypeName="sync6024Model.Tbl_NamedParameter">
+        <MappingFragment StoreEntitySet="Tbl_NamedParameter">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="key" ColumnName="key" />
+          <ScalarProperty Name="value" ColumnName="value" />
+          <ScalarProperty Name="SyncId" ColumnName="SyncId" />
+          <ScalarProperty Name="MSISDN" ColumnName="MSISDN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_syncOrderRelation">
+      <EntityTypeMapping TypeName="sync6024Model.Tbl_syncOrderRelation">
+        <MappingFragment StoreEntitySet="Tbl_syncOrderRelation">
+          <ScalarProperty Name="SyncId" ColumnName="SyncId" />
+          <ScalarProperty Name="spID" ColumnName="spID" />
+          <ScalarProperty Name="productID" ColumnName="productID" />
+          <ScalarProperty Name="serviceID" ColumnName="serviceID" />
+          <ScalarProperty Name="serviceList" ColumnName="serviceList" />
+          <ScalarProperty Name="updateType" ColumnName="updateType" />
+          <ScalarProperty Name="updateTime" ColumnName="updateTime" />
+          <ScalarProperty Name="updateDesc" ColumnName="updateDesc" />
+          <ScalarProperty Name="effectiveTime" ColumnName="effectiveTime" />
+          <ScalarProperty Name="expiryTime" ColumnName="expiryTime" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_UserID">
+      <EntityTypeMapping TypeName="sync6024Model.Tbl_UserID">
+        <MappingFragment StoreEntitySet="Tbl_UserID">
+          <ScalarProperty Name="TblId" ColumnName="TblId" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="SyncId" ColumnName="SyncId" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="DateStamp" ColumnName="DateStamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SS_SP_UserCreate" FunctionName="sync6024Model.Store.SS_SP_UserCreate" />
+    <FunctionImportMapping FunctionImportName="SS_SP_UserDelete" FunctionName="sync6024Model.Store.SS_SP_UserDelete" />
+    <FunctionImportMapping FunctionImportName="SS_SP_UserUpdate" FunctionName="sync6024Model.Store.SS_SP_UserUpdate" />
+    <FunctionImportMapping FunctionImportName="Sync_SP_OrderCreate" FunctionName="sync6024Model.Store.Sync_SP_OrderCreate" />
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="sync6024Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="SS_Tbl_Role">
+    <Key>
+      <PropertyRef Name="Rid" />
+    </Key>
+    <Property Name="Rid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="SS_Tbl_User" Relationship="Self.FK_SS_Tbl_User_SS_Tbl_Role" FromRole="SS_Tbl_Role" ToRole="SS_Tbl_User" />
+  </EntityType>
+  <EntityType Name="SS_Tbl_User">
+    <Key>
+      <PropertyRef Name="User_ID" />
+    </Key>
+    <Property Name="User_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EMP_ID" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="First_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Last_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Role" Type="Int32" Nullable="false" />
+    <Property Name="LastModified" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="SS_Tbl_Role" Relationship="Self.FK_SS_Tbl_User_SS_Tbl_Role" FromRole="SS_Tbl_User" ToRole="SS_Tbl_Role" />
+  </EntityType>
+  <EntityType Name="Tbl_changeMSISDN">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MSISDN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="newMSISDN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="timeStamp" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="TbL_Error">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Error" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Stamp" Type="DateTime" Precision="3" />
+    <Property Name="Trace" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Tbl_extensionInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="accessCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="chargeMode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MDSPSUBEXPMODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="objectType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="isFreePeriod" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="payType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="transactionID" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="orderKey" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="keyword" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="cycleEndTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="durationOfGracePeriod" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="updateReason" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="serviceAvailability" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="channelID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TraceUniqueID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="operCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="rentSuccess" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="try" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="shortMessage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SyncId" Type="Int32" />
+    <Property Name="MSISDN" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="shortCode" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="durationOfSuspendPeriod" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="servicePayType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fee" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Starttime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Tbl_syncOrderRelation" Relationship="Self.FK_Tbl_extensionInfo_Tbl_syncOrderRelation" FromRole="Tbl_extensionInfo" ToRole="Tbl_syncOrderRelation" />
+  </EntityType>
+  <EntityType Name="Tbl_NamedParameter">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="key" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="value" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SyncId" Type="Int32" />
+    <Property Name="MSISDN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Tbl_syncOrderRelation">
+    <Key>
+      <PropertyRef Name="SyncId" />
+    </Key>
+    <Property Name="SyncId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="spID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="productID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="serviceID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="serviceList" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="updateType" Type="Int32" />
+    <Property Name="updateTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="updateDesc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="effectiveTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="expiryTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Tbl_extensionInfo" Relationship="Self.FK_Tbl_extensionInfo_Tbl_syncOrderRelation" FromRole="Tbl_syncOrderRelation" ToRole="Tbl_extensionInfo" />
+    <NavigationProperty Name="Tbl_UserID" Relationship="Self.FK_UserID_syncOrderRelation" FromRole="Tbl_syncOrderRelation" ToRole="Tbl_UserID" />
+  </EntityType>
+  <EntityType Name="Tbl_UserID">
+    <Key>
+      <PropertyRef Name="TblId" />
+    </Key>
+    <Property Name="TblId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="type" Type="Int32" />
+    <Property Name="SyncId" Type="Int32" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="DateStamp" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Tbl_syncOrderRelation" Relationship="Self.FK_UserID_syncOrderRelation" FromRole="Tbl_UserID" ToRole="Tbl_syncOrderRelation" />
+  </EntityType>
+  <Association Name="FK_SS_Tbl_User_SS_Tbl_Role">
+    <End Role="SS_Tbl_Role" Type="Self.SS_Tbl_Role" Multiplicity="1" />
+    <End Role="SS_Tbl_User" Type="Self.SS_Tbl_User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SS_Tbl_Role">
+        <PropertyRef Name="Rid" />
+      </Principal>
+      <Dependent Role="SS_Tbl_User">
+        <PropertyRef Name="Role" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_extensionInfo_Tbl_syncOrderRelation">
+    <End Role="Tbl_syncOrderRelation" Type="Self.Tbl_syncOrderRelation" Multiplicity="0..1" />
+    <End Role="Tbl_extensionInfo" Type="Self.Tbl_extensionInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_syncOrderRelation">
+        <PropertyRef Name="SyncId" />
+      </Principal>
+      <Dependent Role="Tbl_extensionInfo">
+        <PropertyRef Name="SyncId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserID_syncOrderRelation">
+    <End Role="Tbl_syncOrderRelation" Type="Self.Tbl_syncOrderRelation" Multiplicity="0..1" />
+    <End Role="Tbl_UserID" Type="Self.Tbl_UserID" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_syncOrderRelation">
+        <PropertyRef Name="SyncId" />
+      </Principal>
+      <Dependent Role="Tbl_UserID">
+        <PropertyRef Name="SyncId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SoapSyncEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="SS_Tbl_Role" EntityType="Self.SS_Tbl_Role" />
+    <EntitySet Name="SS_Tbl_User" EntityType="Self.SS_Tbl_User" />
+    <EntitySet Name="Tbl_changeMSISDN" EntityType="Self.Tbl_changeMSISDN" />
+    <EntitySet Name="TbL_Error" EntityType="Self.TbL_Error" />
+    <EntitySet Name="Tbl_extensionInfo" EntityType="Self.Tbl_extensionInfo" />
+    <EntitySet Name="Tbl_NamedParameter" EntityType="Self.Tbl_NamedParameter" />
+    <EntitySet Name="Tbl_syncOrderRelation" EntityType="Self.Tbl_syncOrderRelation" />
+    <EntitySet Name="Tbl_UserID" EntityType="Self.Tbl_UserID" />
+    <AssociationSet Name="FK_SS_Tbl_User_SS_Tbl_Role" Association="Self.FK_SS_Tbl_User_SS_Tbl_Role">
+      <End Role="SS_Tbl_Role" EntitySet="SS_Tbl_Role" />
+      <End Role="SS_Tbl_User" EntitySet="SS_Tbl_User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_extensionInfo_Tbl_syncOrderRelation" Association="Self.FK_Tbl_extensionInfo_Tbl_syncOrderRelation">
+      <End Role="Tbl_syncOrderRelation" EntitySet="Tbl_syncOrderRelation" />
+      <End Role="Tbl_extensionInfo" EntitySet="Tbl_extensionInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserID_syncOrderRelation" Association="Self.FK_UserID_syncOrderRelation">
+      <End Role="Tbl_syncOrderRelation" EntitySet="Tbl_syncOrderRelation" />
+      <End Role="Tbl_UserID" EntitySet="Tbl_UserID" />
+    </AssociationSet>
+    <FunctionImport Name="SS_SP_UserCreate">
+      <Parameter Name="EMP_ID" Mode="In" Type="String" />
+      <Parameter Name="First_Name" Mode="In" Type="String" />
+      <Parameter Name="Last_Name" Mode="In" Type="String" />
+      <Parameter Name="UserName" Mode="In" Type="String" />
+      <Parameter Name="Role" Mode="In" Type="Int32" />
+      <Parameter Name="msg" Mode="InOut" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SS_SP_UserDelete">
+      <Parameter Name="User_ID" Mode="In" Type="Int32" />
+      <Parameter Name="msg" Mode="InOut" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SS_SP_UserUpdate">
+      <Parameter Name="User_ID" Mode="In" Type="Int32" />
+      <Parameter Name="EMP_ID" Mode="In" Type="String" />
+      <Parameter Name="First_Name" Mode="In" Type="String" />
+      <Parameter Name="Last_Name" Mode="In" Type="String" />
+      <Parameter Name="UserName" Mode="In" Type="String" />
+      <Parameter Name="Role" Mode="In" Type="Int32" />
+      <Parameter Name="msg" Mode="InOut" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Sync_SP_OrderCreate">
+      <Parameter Name="spID" Mode="In" Type="String" />
+      <Parameter Name="productID" Mode="In" Type="String" />
+      <Parameter Name="serviceID" Mode="In" Type="String" />
+      <Parameter Name="serviceList" Mode="In" Type="String" />
+      <Parameter Name="updateType" Mode="In" Type="Int32" />
+      <Parameter Name="updateTime" Mode="In" Type="String" />
+      <Parameter Name="updateDesc" Mode="In" Type="String" />
+      <Parameter Name="effectiveTime" Mode="In" Type="String" />
+      <Parameter Name="expiryTime" Mode="In" Type="String" />
+      <Parameter Name="userID" Mode="In" Type="String" />
+      <Parameter Name="msg" Mode="InOut" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+</Schema>

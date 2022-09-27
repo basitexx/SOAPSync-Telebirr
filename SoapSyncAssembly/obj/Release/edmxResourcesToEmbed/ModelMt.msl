@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="mt_6024ModelStoreContainer" CdmEntityContainer="MT_SMSEntities">
+    <EntitySetMapping Name="SS_Tbl_Error">
+      <EntityTypeMapping TypeName="mt_6024Model.SS_Tbl_Error">
+        <MappingFragment StoreEntitySet="SS_Tbl_Error">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Error" ColumnName="Error" />
+          <ScalarProperty Name="Source" ColumnName="Source" />
+          <ScalarProperty Name="Trace" ColumnName="Trace" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SS_Tbl_SubCategory">
+      <EntityTypeMapping TypeName="mt_6024Model.SS_Tbl_SubCategory">
+        <MappingFragment StoreEntitySet="SS_Tbl_SubCategory">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="KeyWord" ColumnName="KeyWord" />
+          <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+          <ScalarProperty Name="Language" ColumnName="Language" />
+          <ScalarProperty Name="isDefault" ColumnName="isDefault" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SS_Tbl_Subscription">
+      <EntityTypeMapping TypeName="mt_6024Model.SS_Tbl_Subscription">
+        <MappingFragment StoreEntitySet="SS_Tbl_Subscription">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="SubCategoryId" ColumnName="SubCategoryId" />
+          <ScalarProperty Name="DateSubscription" ColumnName="DateSubscription" />
+          <ScalarProperty Name="DateTermination" ColumnName="DateTermination" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

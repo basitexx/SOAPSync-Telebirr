@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PaymentModelStoreContainer" CdmEntityContainer="PaymentEntities">
+    <FunctionImportMapping FunctionName="PaymentModel.Store.fn_GetBulkStatusTotal" FunctionImportName="fn_GetBulkStatusTotal">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PaymentModel.fn_GetBulkStatusTotal_Result">
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionName="PaymentModel.Store.fn_GetCustomerHistory" FunctionImportName="fn_GetCustomerHistory">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PaymentModel.fn_GetCustomerHistory_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Msisdn" ColumnName="Msisdn" />
+          <ScalarProperty Name="DateSubscription" ColumnName="DateSubscription" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Period" ColumnName="Period" />
+          <ScalarProperty Name="Referrer" ColumnName="Referrer" />
+          <ScalarProperty Name="Product" ColumnName="Product" />
+          <ScalarProperty Name="DateTermination" ColumnName="DateTermination" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionName="PaymentModel.Store.fn_GetCustomerList" FunctionImportName="fn_GetCustomerList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PaymentModel.fn_GetCustomerList_Result">
+          <ScalarProperty Name="Msisdn" ColumnName="Msisdn" />
+          <ScalarProperty Name="DateSubscription" ColumnName="DateSubscription" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Period" ColumnName="Period" />
+          <ScalarProperty Name="ServiceId" ColumnName="ServiceId" />
+          <ScalarProperty Name="DateTermination" ColumnName="DateTermination" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionName="PaymentModel.Store.fn_GetNonPremiumList" FunctionImportName="fn_GetNonPremiumList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PaymentModel.fn_GetNonPremiumList_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionName="PaymentModel.Store.fn_GetPromotionList" FunctionImportName="fn_GetPromotionList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PaymentModel.fn_GetPromotionList_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionName="PaymentModel.Store.fn_GetPromotionList_Amir" FunctionImportName="fn_GetPromotionList_Amir">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PaymentModel.fn_GetPromotionList_Amir_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionName="PaymentModel.Store.fn_GetPromotionList_Kiya" FunctionImportName="fn_GetPromotionList_Kiya">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PaymentModel.fn_GetPromotionList_Kiya_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionName="PaymentModel.Store.fn_GetReminderList" FunctionImportName="fn_GetReminderList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PaymentModel.fn_GetReminderList_Result">
+          <ScalarProperty Name="Msisdn" ColumnName="Msisdn" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionName="PaymentModel.Store.fn_GetSubscriptionList" FunctionImportName="fn_GetSubscriptionList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PaymentModel.fn_GetSubscriptionList_Result">
+          <ScalarProperty Name="ServiceId" ColumnName="ServiceId" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionName="PaymentModel.Store.fn_GetSubscriptions" FunctionImportName="fn_GetSubscriptions">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PaymentModel.fn_GetSubscriptions_Result">
+          <ScalarProperty Name="amount" ColumnName="amount" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionName="PaymentModel.Store.fn_GetSubscriptionSummary" FunctionImportName="fn_GetSubscriptionSummary">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PaymentModel.fn_GetSubscriptionSummary_Result">
+          <ScalarProperty Name="ServiceId" ColumnName="ServiceId" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionName="PaymentModel.Store.fn_GetTerminationList" FunctionImportName="fn_GetTerminationList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PaymentModel.fn_GetTerminationList_Result">
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionName="PaymentModel.Store.fn_GetTerminations" FunctionImportName="fn_GetTerminations">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PaymentModel.fn_GetTerminations_Result">
+          <ScalarProperty Name="amount" ColumnName="amount" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionName="PaymentModel.Store.fn_GetTodaysSchedule" FunctionImportName="fn_GetTodaysSchedule">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PaymentModel.fn_GetTodaysSchedule_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+          <ScalarProperty Name="timeStamp" ColumnName="timeStamp" />
+          <ScalarProperty Name="DateStamp" ColumnName="DateStamp" />
+          <ScalarProperty Name="ServiceId" ColumnName="ServiceId" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ReferenceCode" ColumnName="ReferenceCode" />
+          <ScalarProperty Name="SpPassword" ColumnName="SpPassword" />
+          <ScalarProperty Name="SpId" ColumnName="SpId" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionName="PaymentModel.Store.fn_GetTotalMessages" FunctionImportName="fn_GetTotalMessages">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PaymentModel.fn_GetTotalMessages_Result">
+          <ScalarProperty Name="Total" ColumnName="Total" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_Summary" FunctionName="PaymentModel.Store.SP_Summary" />
+    <FunctionImportMapping FunctionImportName="Sp_TransferGroupLog" FunctionName="PaymentModel.Store.Sp_TransferGroupLog" />
+    <FunctionImportMapping FunctionImportName="Sp_Unsubscribe" FunctionName="PaymentModel.Store.Sp_Unsubscribe" />
+    <FunctionImportMapping FunctionImportName="Sp_Unsubscribtion" FunctionName="PaymentModel.Store.Sp_Unsubscribtion" />
+    <FunctionImportMapping FunctionImportName="Vas_Sp_UpdateDelivery" FunctionName="PaymentModel.Store.Vas_Sp_UpdateDelivery" />
+    <EntitySetMapping Name="Tbl_Error">
+      <EntityTypeMapping TypeName="PaymentModel.Tbl_Error">
+        <MappingFragment StoreEntitySet="Tbl_Error">
+          <ScalarProperty Name="Source" ColumnName="Source" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="Trace" ColumnName="Trace" />
+          <ScalarProperty Name="ErrorMessage" ColumnName="ErrorMessage" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Sp_Pmt_Unsubscribe" FunctionName="PaymentModel.Store.Sp_Pmt_Unsubscribe" />
+  </EntityContainerMapping>
+</Mapping>

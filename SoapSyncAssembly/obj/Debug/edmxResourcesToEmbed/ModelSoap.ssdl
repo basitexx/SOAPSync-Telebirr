@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="sync6024Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="SS_Tbl_Role">
+    <Key>
+      <PropertyRef Name="Rid" />
+    </Key>
+    <Property Name="Rid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Role" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SS_Tbl_User">
+    <Key>
+      <PropertyRef Name="User_ID" />
+    </Key>
+    <Property Name="User_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EMP_ID" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="First_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Last_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Role" Type="int" Nullable="false" />
+    <Property Name="LastModified" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tbl_changeMSISDN">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MSISDN" Type="nvarchar" MaxLength="50" />
+    <Property Name="newMSISDN" Type="nvarchar" MaxLength="50" />
+    <Property Name="timeStamp" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="TbL_Error">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Error" Type="nvarchar(max)" />
+    <Property Name="Stamp" Type="datetime" />
+    <Property Name="Trace" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Tbl_extensionInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="accessCode" Type="varchar" MaxLength="50" />
+    <Property Name="chargeMode" Type="varchar" MaxLength="50" />
+    <Property Name="MDSPSUBEXPMODE" Type="varchar" MaxLength="50" />
+    <Property Name="objectType" Type="varchar" MaxLength="50" />
+    <Property Name="isFreePeriod" Type="varchar" MaxLength="50" />
+    <Property Name="payType" Type="varchar" MaxLength="50" />
+    <Property Name="transactionID" Type="varchar(max)" />
+    <Property Name="orderKey" Type="varchar" MaxLength="50" />
+    <Property Name="keyword" Type="varchar" MaxLength="100" />
+    <Property Name="cycleEndTime" Type="varchar" MaxLength="50" />
+    <Property Name="durationOfGracePeriod" Type="varchar" MaxLength="50" />
+    <Property Name="updateReason" Type="varchar" MaxLength="50" />
+    <Property Name="serviceAvailability" Type="varchar" MaxLength="50" />
+    <Property Name="channelID" Type="varchar" MaxLength="50" />
+    <Property Name="TraceUniqueID" Type="varchar" MaxLength="50" />
+    <Property Name="operCode" Type="varchar" MaxLength="50" />
+    <Property Name="rentSuccess" Type="varchar" MaxLength="50" />
+    <Property Name="try" Type="varchar" MaxLength="50" />
+    <Property Name="shortMessage" Type="nvarchar(max)" />
+    <Property Name="SyncId" Type="int" />
+    <Property Name="MSISDN" Type="varchar" MaxLength="15" />
+    <Property Name="shortCode" Type="varchar" MaxLength="15" />
+    <Property Name="durationOfSuspendPeriod" Type="varchar" MaxLength="50" />
+    <Property Name="servicePayType" Type="varchar" MaxLength="50" />
+    <Property Name="fee" Type="varchar" MaxLength="50" />
+    <Property Name="Starttime" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Tbl_NamedParameter">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="key" Type="varchar" MaxLength="50" />
+    <Property Name="value" Type="varchar" MaxLength="50" />
+    <Property Name="SyncId" Type="int" />
+    <Property Name="MSISDN" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Tbl_syncOrderRelation">
+    <Key>
+      <PropertyRef Name="SyncId" />
+    </Key>
+    <Property Name="SyncId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="spID" Type="varchar" MaxLength="50" />
+    <Property Name="productID" Type="varchar" MaxLength="50" />
+    <Property Name="serviceID" Type="varchar" MaxLength="50" />
+    <Property Name="serviceList" Type="varchar" MaxLength="50" />
+    <Property Name="updateType" Type="int" />
+    <Property Name="updateTime" Type="varchar" MaxLength="50" />
+    <Property Name="updateDesc" Type="varchar" MaxLength="50" />
+    <Property Name="effectiveTime" Type="varchar" MaxLength="50" />
+    <Property Name="expiryTime" Type="varchar" MaxLength="50" />
+    <Property Name="UserId" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Tbl_UserID">
+    <Key>
+      <PropertyRef Name="TblId" />
+    </Key>
+    <Property Name="TblId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID" Type="varchar" MaxLength="50" />
+    <Property Name="type" Type="int" />
+    <Property Name="SyncId" Type="int" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="DateStamp" Type="datetime" />
+  </EntityType>
+  <Association Name="FK_SS_Tbl_User_SS_Tbl_Role">
+    <End Role="SS_Tbl_Role" Type="Self.SS_Tbl_Role" Multiplicity="1" />
+    <End Role="SS_Tbl_User" Type="Self.SS_Tbl_User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SS_Tbl_Role">
+        <PropertyRef Name="Rid" />
+      </Principal>
+      <Dependent Role="SS_Tbl_User">
+        <PropertyRef Name="Role" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_extensionInfo_Tbl_syncOrderRelation">
+    <End Role="Tbl_syncOrderRelation" Type="Self.Tbl_syncOrderRelation" Multiplicity="0..1" />
+    <End Role="Tbl_extensionInfo" Type="Self.Tbl_extensionInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_syncOrderRelation">
+        <PropertyRef Name="SyncId" />
+      </Principal>
+      <Dependent Role="Tbl_extensionInfo">
+        <PropertyRef Name="SyncId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserID_syncOrderRelation">
+    <End Role="Tbl_syncOrderRelation" Type="Self.Tbl_syncOrderRelation" Multiplicity="0..1" />
+    <End Role="Tbl_UserID" Type="Self.Tbl_UserID" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_syncOrderRelation">
+        <PropertyRef Name="SyncId" />
+      </Principal>
+      <Dependent Role="Tbl_UserID">
+        <PropertyRef Name="SyncId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="SS_SP_UserCreate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EMP_ID" Type="nvarchar" Mode="In" />
+    <Parameter Name="First_Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="Last_Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="UserName" Type="nvarchar" Mode="In" />
+    <Parameter Name="Role" Type="int" Mode="In" />
+    <Parameter Name="msg" Type="varchar" Mode="InOut" />
+  </Function>
+  <Function Name="SS_SP_UserDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="User_ID" Type="int" Mode="In" />
+    <Parameter Name="msg" Type="nvarchar" Mode="InOut" />
+  </Function>
+  <Function Name="SS_SP_UserUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="User_ID" Type="int" Mode="In" />
+    <Parameter Name="EMP_ID" Type="varchar" Mode="In" />
+    <Parameter Name="First_Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="Last_Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="UserName" Type="nvarchar" Mode="In" />
+    <Parameter Name="Role" Type="int" Mode="In" />
+    <Parameter Name="msg" Type="nvarchar" Mode="InOut" />
+  </Function>
+  <Function Name="Sync_SP_OrderCreate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="spID" Type="varchar" Mode="In" />
+    <Parameter Name="productID" Type="varchar" Mode="In" />
+    <Parameter Name="serviceID" Type="varchar" Mode="In" />
+    <Parameter Name="serviceList" Type="varchar" Mode="In" />
+    <Parameter Name="updateType" Type="int" Mode="In" />
+    <Parameter Name="updateTime" Type="varchar" Mode="In" />
+    <Parameter Name="updateDesc" Type="varchar" Mode="In" />
+    <Parameter Name="effectiveTime" Type="varchar" Mode="In" />
+    <Parameter Name="expiryTime" Type="varchar" Mode="In" />
+    <Parameter Name="userID" Type="varchar" Mode="In" />
+    <Parameter Name="msg" Type="varchar" Mode="InOut" />
+  </Function>
+  <EntityContainer Name="sync6024ModelStoreContainer">
+    <EntitySet Name="SS_Tbl_Role" EntityType="Self.SS_Tbl_Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SS_Tbl_User" EntityType="Self.SS_Tbl_User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_changeMSISDN" EntityType="Self.Tbl_changeMSISDN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TbL_Error" EntityType="Self.TbL_Error" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_extensionInfo" EntityType="Self.Tbl_extensionInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_NamedParameter" EntityType="Self.Tbl_NamedParameter" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_syncOrderRelation" EntityType="Self.Tbl_syncOrderRelation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_UserID" EntityType="Self.Tbl_UserID" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_SS_Tbl_User_SS_Tbl_Role" Association="Self.FK_SS_Tbl_User_SS_Tbl_Role">
+      <End Role="SS_Tbl_Role" EntitySet="SS_Tbl_Role" />
+      <End Role="SS_Tbl_User" EntitySet="SS_Tbl_User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_extensionInfo_Tbl_syncOrderRelation" Association="Self.FK_Tbl_extensionInfo_Tbl_syncOrderRelation">
+      <End Role="Tbl_syncOrderRelation" EntitySet="Tbl_syncOrderRelation" />
+      <End Role="Tbl_extensionInfo" EntitySet="Tbl_extensionInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserID_syncOrderRelation" Association="Self.FK_UserID_syncOrderRelation">
+      <End Role="Tbl_syncOrderRelation" EntitySet="Tbl_syncOrderRelation" />
+      <End Role="Tbl_UserID" EntitySet="Tbl_UserID" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="mt_6024Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="SS_Tbl_Error">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Error" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Source" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Trace" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Time" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="SS_Tbl_SubCategory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="KeyWord" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="DateAdded" Type="DateTime" Precision="3" />
+    <Property Name="Language" Type="Int32" />
+    <Property Name="isDefault" Type="Boolean" />
+    <NavigationProperty Name="SS_Tbl_Subscription" Relationship="Self.FK_SS_Tbl_Subscription_SS_Tbl_SubCategory" FromRole="SS_Tbl_SubCategory" ToRole="SS_Tbl_Subscription" />
+  </EntityType>
+  <EntityType Name="SS_Tbl_Subscription">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerId" Type="Int32" />
+    <Property Name="SubCategoryId" Type="Int32" Nullable="false" />
+    <Property Name="DateSubscription" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DateTermination" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="Mobile" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="SS_Tbl_SubCategory" Relationship="Self.FK_SS_Tbl_Subscription_SS_Tbl_SubCategory" FromRole="SS_Tbl_Subscription" ToRole="SS_Tbl_SubCategory" />
+  </EntityType>
+  <Association Name="FK_SS_Tbl_Subscription_SS_Tbl_SubCategory">
+    <End Role="SS_Tbl_SubCategory" Type="Self.SS_Tbl_SubCategory" Multiplicity="1" />
+    <End Role="SS_Tbl_Subscription" Type="Self.SS_Tbl_Subscription" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SS_Tbl_SubCategory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SS_Tbl_Subscription">
+        <PropertyRef Name="SubCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MT_SMSEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="SS_Tbl_Error" EntityType="Self.SS_Tbl_Error" />
+    <EntitySet Name="SS_Tbl_SubCategory" EntityType="Self.SS_Tbl_SubCategory" />
+    <EntitySet Name="SS_Tbl_Subscription" EntityType="Self.SS_Tbl_Subscription" />
+    <AssociationSet Name="FK_SS_Tbl_Subscription_SS_Tbl_SubCategory" Association="Self.FK_SS_Tbl_Subscription_SS_Tbl_SubCategory">
+      <End Role="SS_Tbl_SubCategory" EntitySet="SS_Tbl_SubCategory" />
+      <End Role="SS_Tbl_Subscription" EntitySet="SS_Tbl_Subscription" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

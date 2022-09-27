@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PaymentSubscriberModelStoreContainer" CdmEntityContainer="PaymentSubscriberEntities">
+    <EntitySetMapping Name="Tbl_Error">
+      <EntityTypeMapping TypeName="PaymentSubscriberModel.Tbl_Error">
+        <MappingFragment StoreEntitySet="Tbl_Error">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ErrorMessage" ColumnName="ErrorMessage" />
+          <ScalarProperty Name="Trace" ColumnName="Trace" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="Source" ColumnName="Source" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Sync">
+      <EntityTypeMapping TypeName="PaymentSubscriberModel.Tbl_Sync">
+        <MappingFragment StoreEntitySet="Tbl_Sync">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Msisdn" ColumnName="Msisdn" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="DateSubscription" ColumnName="DateSubscription" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="DateTermination" ColumnName="DateTermination" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
