@@ -6,39 +6,39 @@ using System.Threading.Tasks;
 
 namespace SoapSyncAssembly
 {
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.csapi.org/schema/parlayx/data/v1_0")]
-    public partial class NamedParameter
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://cps.huawei.com/cpsinterface/c2bpayment")]
+    public partial class KYCInfo
     {
 
-        private string keyField;
+        private string KYCNameField;
 
-        private string valueField;
+        private string KYCValueField;
 
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string key
+        public string KYCName
         {
             get
             {
-                return this.keyField;
+                return this.KYCNameField;
             }
             set
             {
-                this.keyField = value;
+                this.KYCNameField = value;
             }
         }
 
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string value
+        public string KYCValue
         {
             get
             {
-                return this.valueField;
+                return this.KYCValueField;
             }
             set
             {
-                this.valueField = value;
+                this.KYCValueField = value;
             }
         }
     }

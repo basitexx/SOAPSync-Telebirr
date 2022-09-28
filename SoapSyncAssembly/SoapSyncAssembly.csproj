@@ -51,113 +51,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="changeMSISDN.cs" />
-    <Compile Include="changeMSISDNResponse.cs" />
-    <Compile Include="ModelSubscription.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelSubscription.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModelSubscription.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelSubscription.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModelSubscription.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelSubscription.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="NamedParameter.cs" />
-    <Compile Include="productDetail.cs" />
+    <Compile Include="C2BPaymentConfirmationRequest.cs" />
+    <Compile Include="C2BPaymentConfirmationResult.cs" />
+    <Compile Include="C2BPaymentQueryRequest.cs" />
+    <Compile Include="C2BPaymentQueryResult.cs" />
+    <Compile Include="C2BPaymentValidationRequest.cs" />
+    <Compile Include="C2BPaymentValidationResult.cs" />
+    <Compile Include="KYCInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SS_Tbl_ClientStatus.cs">
-      <DependentUpon>ModelSubscription.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SS_Tbl_Config.cs">
-      <DependentUpon>ModelSubscription.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SS_Tbl_ConnectionStatus.cs">
-      <DependentUpon>ModelSubscription.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SS_Tbl_Error.cs">
-      <DependentUpon>ModelSubscription.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SS_Tbl_Language.cs">
-      <DependentUpon>ModelSubscription.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SS_Tbl_Message.cs">
-      <DependentUpon>ModelSubscription.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SS_Tbl_MessageLog.cs">
-      <DependentUpon>ModelSubscription.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SS_Tbl_MessageLogIncoming.cs">
-      <DependentUpon>ModelSubscription.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SS_Tbl_Promotion_Group.cs">
-      <DependentUpon>ModelSubscription.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SS_Tbl_Promotion_Schedule.cs">
-      <DependentUpon>ModelSubscription.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SS_Tbl_Promotion_Temp.cs">
-      <DependentUpon>ModelSubscription.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SS_Tbl_Role.cs">
-      <DependentUpon>ModelSubscription.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SS_Tbl_Schedule.cs">
-      <DependentUpon>ModelSubscription.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SS_Tbl_Settings.cs">
-      <DependentUpon>ModelSubscription.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SS_Tbl_SiteMap.cs">
-      <DependentUpon>ModelSubscription.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SS_Tbl_SubCategory.cs">
-      <DependentUpon>ModelSubscription.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SS_Tbl_Subscription.cs">
-      <DependentUpon>ModelSubscription.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SS_Tbl_User.cs">
-      <DependentUpon>ModelSubscription.tt</DependentUpon>
-    </Compile>
-    <Compile Include="syncMSISDNChange.cs" />
-    <Compile Include="syncMSISDNChangeResponse.cs" />
-    <Compile Include="syncOrderRelation.cs" />
-    <Compile Include="syncOrderRelationResponse.cs" />
-    <Compile Include="syncSubscriptionData.cs" />
-    <Compile Include="syncSubscriptionDataResponse.cs" />
-    <Compile Include="UserID.cs" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <EntityDeploy Include="ModelSubscription.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ModelSubscription.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="App.Config" />
-    <None Include="ModelSubscription.edmx.diagram">
-      <DependentUpon>ModelSubscription.edmx</DependentUpon>
-    </None>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="ModelSubscription.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelSubscription.edmx</DependentUpon>
-      <LastGenOutput>ModelSubscription.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="ModelSubscription.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelSubscription.edmx</DependentUpon>
-      <LastGenOutput>ModelSubscription.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

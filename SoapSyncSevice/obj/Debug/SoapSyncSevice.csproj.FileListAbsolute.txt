@@ -46,3 +46,16 @@ D:\Documents\Visual Studio 2015\Projects\SOAPSync-SDP\SoapSyncSevice\bin\SoapSyn
 D:\Documents\Visual Studio 2015\Projects\SOAPSync-SDP\SoapSyncSevice\bin\SoapSyncAssembly.pdb
 D:\Documents\Visual Studio 2015\Projects\SOAPSync-SDP\SoapSyncSevice\bin\EntityFramework.xml
 D:\Documents\Visual Studio 2015\Projects\SOAPSync-SDP\SoapSyncSevice\bin\EntityFramework.SqlServer.xml
+C:\Users\hp\source\repos\SOAPSync-Telebirr\SoapSyncSevice\bin\SoapSyncSevice.dll.config
+C:\Users\hp\source\repos\SOAPSync-Telebirr\SoapSyncSevice\bin\SoapSyncSevice.dll
+C:\Users\hp\source\repos\SOAPSync-Telebirr\SoapSyncSevice\bin\SoapSyncSevice.pdb
+C:\Users\hp\source\repos\SOAPSync-Telebirr\SoapSyncSevice\bin\EntityFramework.dll
+C:\Users\hp\source\repos\SOAPSync-Telebirr\SoapSyncSevice\bin\EntityFramework.SqlServer.dll
+C:\Users\hp\source\repos\SOAPSync-Telebirr\SoapSyncSevice\bin\SoapSyncAssembly.dll
+C:\Users\hp\source\repos\SOAPSync-Telebirr\SoapSyncSevice\bin\SoapSyncAssembly.pdb
+C:\Users\hp\source\repos\SOAPSync-Telebirr\SoapSyncSevice\bin\EntityFramework.xml
+C:\Users\hp\source\repos\SOAPSync-Telebirr\SoapSyncSevice\bin\EntityFramework.SqlServer.xml
+C:\Users\hp\source\repos\SOAPSync-Telebirr\SoapSyncSevice\obj\Debug\SoapSyncSevice.csprojAssemblyReference.cache
+C:\Users\hp\source\repos\SOAPSync-Telebirr\SoapSyncSevice\obj\Debug\SoapSyncSevice.csproj.CopyComplete
+C:\Users\hp\source\repos\SOAPSync-Telebirr\SoapSyncSevice\obj\Debug\SoapSyncSevice.dll
+C:\Users\hp\source\repos\SOAPSync-Telebirr\SoapSyncSevice\obj\Debug\SoapSyncSevice.pdb

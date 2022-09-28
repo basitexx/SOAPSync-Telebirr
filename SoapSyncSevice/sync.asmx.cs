@@ -19,7 +19,7 @@ namespace SoapSyncSevice
     /// Summary description for DataSync
     /// </summary>
 
-    [WebService(Namespace = "http://www.csapi.org/schema/parlayx/data/sync/v1_0/local")]
+    [WebService(Namespace = "http://cps.huawei.com/cpsinterface/c2bpayment")]
     //[WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
     // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
@@ -33,7 +33,7 @@ namespace SoapSyncSevice
             int i = 0;
             try
             {
-                start:
+            start:
                 IPHostEntry ipHostInfo = Dns.GetHostEntry(Dns.GetHostName()); // `Dns.Resolve()` method is deprecated.
                 IPAddress ipAddress = ipHostInfo.AddressList[i];
 
@@ -55,81 +55,38 @@ namespace SoapSyncSevice
                 return ipAddress.ToString();
             }
         }
-        /// //
+
+        
+
         /// 
         /// </summary>
-        /// <param name="syncOrderRelation"></param>
-        /// <returns>syncOrderRelationResponse </returns>
+        /// <param name="C2BPaymentQueryRequest"></param>
+        /// <returns>C2BPaymentQueryResult </returns>
         /// 
-        [SoapDocumentMethodAttribute("", RequestElementName = "syncOrderRelation", Use = SoapBindingUse.Literal, ParameterStyle = SoapParameterStyle.Bare)]
+        [SoapDocumentMethodAttribute("", RequestElementName = "C2BPaymentQueryRequest", Use = SoapBindingUse.Literal, ParameterStyle = SoapParameterStyle.Bare)]
         [WebMethod]
-        [return: XmlElement("syncOrderRelationResponse")]
-        public syncOrderRelationResponse syncOrderRelation(syncOrderRelation syncOrderRelation)
+        [return: XmlElement("C2BPaymentQueryResult")]
+        public C2BPaymentQueryResult C2BPaymentQueryRequest(C2BPaymentQueryRequest C2BPaymentQueryRequest)
         {
-            syncOrderRelationResponse a = new syncOrderRelationResponse();
+            C2BPaymentQueryResult a = new C2BPaymentQueryResult();
 
-          
             try
             {
-                var context = new SubscriptionEntities();
-                // Create UserId for sync
-                if (syncOrderRelation.updateType == 1)
-                {
-                    SS_Tbl_SubCategory sub = new SS_Tbl_SubCategory();
-                    sub = context.SS_Tbl_SubCategory.First();
-                    if (sub != null)
-                    {
-                        SS_Tbl_Subscription sync = new SS_Tbl_Subscription();
-                        sync.Mobile = syncOrderRelation.userID.ID;
-                        sync.Product_Id = syncOrderRelation.productID;
-                        sync.DateSubscription = DateTime.Now;
-                        sync.SubCategoryId = sub.Id;
-                        sync.Status = true;
+                // Do your thing here
 
-                        context.SS_Tbl_Subscription.Add(sync);
-                        context.SaveChanges();
-                    }
+                a.ResultCode = "0";
+                a.ResultDesc = "Success";
+                a.TransID = "10001"; // retrive fromn the recieved request
+                a.BillRefNumber = "TX10001"; //reference for the bill
+                a.UtilityName = "KORA TRIP";
+                a.CustomerName = "Driver Name"; // Get the driver name From DB.
+                a.Amount = "300";
 
-                    a.result = "0";
-                    a.resultDescription = "OK";
-
-                    return a;
-                }
-                else
-                {
-                    /// update and terminate               
-                    /* SS_Tbl_Subscription sync = new SS_Tbl_Subscription();
-                     sync = context.SS_Tbl_Subscription.FirstOrDefault(p => p.Mobile == syncOrderRelation.userID.ID);
-                     if (sync != null)
-                     {
-                         sync.DateTermination = DateTime.Now;
-                         sync.Status = false;                        
-                         context.SaveChanges();
-                     }*/
-                    SS_Tbl_SubCategory sub = new SS_Tbl_SubCategory();
-                    sub = context.SS_Tbl_SubCategory.First();
-                    if (sub != null)
-                    {
-                        SS_Tbl_Subscription sync = new SS_Tbl_Subscription();
-                        sync.Mobile = syncOrderRelation.userID.ID;
-                        sync.Product_Id = syncOrderRelation.productID;
-                        sync.DateTermination = DateTime.Now;
-                        sync.SubCategoryId = sub.Id;
-                        sync.Status = false;
-
-                        context.SS_Tbl_Subscription.Add(sync);
-                        context.SaveChanges();
-                    }
-
-                    a.result = "0";
-                    a.resultDescription = "OK";
-
-                    return a;
-                }
+                return a;
             }
             catch (Exception ex)
             {
-                var context = new SubscriptionEntities();
+                //var context = new SubscriptionEntities();
                 string Errmsg = "";
                 if (ex.InnerException != null)
                     if (ex.InnerException.InnerException != null)
@@ -143,20 +100,116 @@ namespace SoapSyncSevice
                 else
                     Errmsg = ex.Message;
 
-                SS_Tbl_Error err = new SS_Tbl_Error();
+                /*SS_Tbl_Error err = new SS_Tbl_Error();
                 err.Error = Errmsg;
                 err.Source = ex.Source;
                 err.Trace = ex.StackTrace;
                 err.Time = DateTime.Now.ToShortDateString();
                 context.SS_Tbl_Error.Add(err);
-                context.SaveChanges();
+                context.SaveChanges();*/
 
-                a.result = "1";
-                a.resultDescription = Errmsg;
+                a.ResultCode = "2";
+                a.ResultDesc = Errmsg;
 
                 return a;
             }
+        }
 
+        /// 
+        /// </summary>
+        /// <param name="C2BPaymentValidationRequest"></param>
+        /// <returns>C2BPaymentValidationResult </returns>
+        /// 
+        [SoapDocumentMethodAttribute("", RequestElementName = "C2BPaymentValidationRequest ", Use = SoapBindingUse.Literal, ParameterStyle = SoapParameterStyle.Bare)]
+        [WebMethod]
+        [return: XmlElement("C2BPaymentValidationResult")]
+        public C2BPaymentValidationResult C2BPaymentValidationRequest(C2BPaymentValidationRequest C2BPaymentValidationRequest)
+        {
+            C2BPaymentValidationResult rv = new C2BPaymentValidationResult();
+
+            try
+            {
+                // Do your thing here
+
+                rv.ResultCode = "0";
+                rv.ResultDesc = "Success";
+                rv.ThirdPartyTransID = "10"; // retrive fromn the recieved request
+              
+                return rv;
+            }
+            catch (Exception ex)
+            {
+                //var context = new SubscriptionEntities();
+                string Errmsg = "";
+                if (ex.InnerException != null)
+                    if (ex.InnerException.InnerException != null)
+                    {
+                        Errmsg = ex.InnerException.InnerException.Message;
+                    }
+                    else
+                    {
+                        Errmsg = ex.InnerException.Message;
+                    }
+                else
+                    Errmsg = ex.Message;
+
+                /*SS_Tbl_Error err = new SS_Tbl_Error();
+                err.Error = Errmsg;
+                err.Source = ex.Source;
+                err.Trace = ex.StackTrace;
+                err.Time = DateTime.Now.ToShortDateString();
+                context.SS_Tbl_Error.Add(err);
+                context.SaveChanges();*/
+
+                rv.ResultCode = "2";
+                rv.ResultDesc = Errmsg;
+
+                return rv;
+            }
+
+        }
+
+        /// 
+        /// </summary>
+        /// <param name="C2BPaymentConfirmationRequest "></param>
+        /// <returns>C2BPaymentValidationResult </returns>
+        /// 
+        [SoapDocumentMethodAttribute("", RequestElementName = "C2BPaymentConfirmationRequest  ", Use = SoapBindingUse.Literal, ParameterStyle = SoapParameterStyle.Bare)]
+        [WebMethod]
+        [return: XmlElement("C2BPaymentConfirmationResult")]
+        public string C2BPaymentConfirmationRequest(C2BPaymentConfirmationRequest C2BPaymentConfirmationRequest)
+        {            
+            try
+            {
+                // Do your thing here               
+                return "0";
+            }
+            catch (Exception ex)
+            {
+                //var context = new SubscriptionEntities();
+                string Errmsg = "";
+                if (ex.InnerException != null)
+                    if (ex.InnerException.InnerException != null)
+                    {
+                        Errmsg = ex.InnerException.InnerException.Message;
+                    }
+                    else
+                    {
+                        Errmsg = ex.InnerException.Message;
+                    }
+                else
+                    Errmsg = ex.Message;
+
+                /*SS_Tbl_Error err = new SS_Tbl_Error();
+                err.Error = Errmsg;
+                err.Source = ex.Source;
+                err.Trace = ex.StackTrace;
+                err.Time = DateTime.Now.ToShortDateString();
+                context.SS_Tbl_Error.Add(err);
+                context.SaveChanges();*/
+                               
+                return "1"; //Error
+            }
         }
     }
 }
